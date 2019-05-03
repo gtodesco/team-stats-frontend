@@ -1,0 +1,59 @@
+<div class="container">
+    <mat-card>
+      <mat-card-title>Cadastro</mat-card-title>
+      <form [formGroup]="form">
+        <div formGroupName="pessoa">
+          <mat-form-field>
+            <input
+              matInput
+              required
+              formControlName="nome"
+              placeholder="Nome"
+              [(ngModel)]="nome">
+            <mat-error *ngIf="form.get('pessoa.nome').hasError('required')">{{getRequiredMessage('nome')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="email"
+              required
+              formControlName="email"
+              placeholder="E-mail"
+              [(ngModel)]="email">
+            <mat-error *ngIf="form.get('pessoa.email').hasError('required')">{{getRequiredMessage('e-mail')}}</mat-error>
+            <mat-error *ngIf="form.get('pessoa.email').hasError('email')">E-mail inválido</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              required
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password"
+              placeholder="Password"
+              [(ngModel)]="password">
+            <mat-error *ngIf="form.get('pessoa.password').hasError('required')">{{getRequiredMessage('password')}}</mat-error>
+            <mat-icon
+              matSuffix
+              (click)="hide = !hide">
+              {{hide ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="cadastro_buttons">
+          <button
+            mat-flat-button
+            color="basic"
+            routerLink="/login">
+            Voltar
+          </button>
+          <button
+            mat-flat-button
+            color="primary"
+            [disabled]="form.invalid"
+            (click)="salvar()">
+            Salvar
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
