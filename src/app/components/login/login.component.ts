@@ -31,7 +31,7 @@ export class LoginComponent {
         if(this.password === JSON.parse(JSON.stringify(res)).password){
           sessionStorage.setItem("email", this.email);
           alert("logou");
-          //this.router.navigate(['/cadastro']); TELA DE EQUIPES
+          this.router.navigate(['/equipes']);
         }else{
           alert("Password incorreto");
         }
