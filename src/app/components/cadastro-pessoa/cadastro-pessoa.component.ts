@@ -14,12 +14,14 @@ export class CadastroPessoaComponent implements OnInit {
   nome;
   email;
   password;
+  checkScrumMaster = false;
 
   form = this.fb.group({
     pessoa: this.fb.group({
       nome: this.fb.control('', [Validators.required]),
       email: this.fb.control('', [Validators.required, Validators.email]),
-      password: this.fb.control('', [Validators.required])
+      password: this.fb.control('', [Validators.required]),
+      scrum_Master: this.fb.control('')
     })
   })
 
@@ -38,6 +40,7 @@ export class CadastroPessoaComponent implements OnInit {
           this.nome = pessoa.nome;
           this.email = pessoa.email;
           this.password = pessoa.password;
+          this.checkScrumMaster = pessoa.scrum_Master;
         },
         error => console.log(error)
       );
@@ -63,11 +66,10 @@ export class CadastroPessoaComponent implements OnInit {
               id: JSON.parse(JSON.stringify(res)).id,
               nome: this.nome,
               email: this.email,
-              password: this.password
+              password: this.password,
+              scrum_Master: this.checkScrumMaster
             })
           });
-          console.log(novoFormulario.value.novopessoa);
-          //this.pessoaService.putpessoa(novoFormulario.value.novopessoa).pipe(first()).subscribe();  
           this.pessoaService.putPessoa(novoFormulario.value.novaPessoa).subscribe();  
           this.router.navigate(['/login']);
         },

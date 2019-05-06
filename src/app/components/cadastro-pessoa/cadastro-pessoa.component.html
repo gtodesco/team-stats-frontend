@@ -38,6 +38,10 @@
               {{hide ? 'visibility' : 'visibility_off'}}
             </mat-icon>
           </mat-form-field>
+          <mat-checkbox 
+            [(ngModel)]="checkScrumMaster"
+            formControlName="scrum_Master"
+            >Scrum Master</mat-checkbox>
         </div>
         <div class="cadastro_buttons">
           <button

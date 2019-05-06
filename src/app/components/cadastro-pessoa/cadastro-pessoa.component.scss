@@ -9,7 +9,7 @@
   
   .container mat-card {
     width: 600px;
-    height: 270px;
+    height: 295px;
     margin-top: 5%;
   }
   
@@ -19,6 +19,10 @@
   
   .container mat-card mat-form-field {
     width: 90%;
+    margin-left: 6%;
+  }
+
+  .container mat-card mat-checkbox {
     margin-left: 6%;
   }
   
