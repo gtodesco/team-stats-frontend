@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-equipes',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipesComponent implements OnInit {
 
-  constructor() { }
+  equipes: string[] = ['Fênix', 'Monster', 'Transformers', 'CuboD4', 'Anônima'];
+
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  editarPerfil(){
+    this.router.navigate(["/cadastro-pessoa"]);
+  }
+
+  sair(){
+    sessionStorage.removeItem("email");
+    this.router.navigate(["/login"]);
   }
 
 }

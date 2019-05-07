@@ -5,7 +5,29 @@
     </div>
     <div class="acoes">
       <button mat-flat-button color="primary">Criar equipe</button>
-      <button mat-flat-button>Editar perfil</button>
+      <button mat-flat-button (click)="editarPerfil()">Editar perfil</button>
+      <button mat-flat-button color="warn" (click)="sair()">Sair</button>
+    </div>
+    <div>
+      <mat-list class="equipes">
+        <div class="equipe" *ngFor="let equipe of equipes">
+            <mat-list-item>
+              {{equipe}}
+              <button mat-icon-button class="botoesEquipe">
+                <mat-icon>table_chart</mat-icon>
+              </button>
+              <button mat-icon-button class="botoesEquipe">
+                <mat-icon>person_add</mat-icon>
+              </button>
+              <button mat-icon-button class="botoesEquipe">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button class="botoesEquipe">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-list-item>
+        </div>
+      </mat-list>
     </div>
   </div>
 </div>
