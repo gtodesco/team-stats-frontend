@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { CadastroPessoaComponent } from './components/cadastro-pessoa/cadastro-pessoa.component';
 import { EquipesComponent } from './components/equipes/equipes.component';
+import { CadastroEquipeComponent } from './components/cadastro-equipe/cadastro-equipe.component';
 
 @NgModule({
   declarations: [ // Components
     AppComponent,
     LoginComponent,
     CadastroPessoaComponent,
-    EquipesComponent
+    EquipesComponent,
+    CadastroEquipeComponent
   ],
   imports: [
     BrowserModule,

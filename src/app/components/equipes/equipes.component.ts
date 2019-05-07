@@ -16,6 +16,10 @@ export class EquipesComponent implements OnInit {
   ngOnInit() {
   }
 
+  criarEquipe(){
+    this.router.navigate(["/cadastro-equipe"]);
+  }
+
   editarPerfil(){
     this.router.navigate(["/cadastro-pessoa"]);
   }
