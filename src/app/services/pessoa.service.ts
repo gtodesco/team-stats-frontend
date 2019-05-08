@@ -1,10 +1,6 @@
-import { MatSnackBar } from '@angular/material';
 import { Pessoa } from '../model/pessoa';
-import { Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'

@@ -1,3 +1,33 @@
-<p>
-  cadastro-equipe works!
-</p>
+<div class="container">
+  <mat-card>
+    <mat-card-title>Cadastro de Equipe</mat-card-title>
+    <form [formGroup]="form">
+      <div formGroupName="equipe">
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="nome"
+            placeholder="Nome"
+            [(ngModel)]="nome">
+          <mat-error *ngIf="form.get('equipe.nome').hasError('required')">{{getRequiredMessage('nome')}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="cadastro_buttons">
+        <button
+          mat-flat-button
+          color="basic"
+          routerLink="/equipes">
+          Voltar
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          [disabled]="form.invalid"
+          (click)="salvar()">
+          Salvar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
