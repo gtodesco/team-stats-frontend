@@ -1,7 +1,7 @@
 <div class="container">
   <div class="conteudo">
     <div class="boasVindas">
-      <h1>Olá, fulano!</h1>
+      <h1>Olá, {{nome}}!</h1>
     </div>
     <div class="acoes">
       <button mat-flat-button color="primary" (click)="criarEquipe()" *ngIf="isScrumMaster">Criar equipe</button>
@@ -10,7 +10,7 @@
     </div>
     <div *ngIf="!isScrumMaster">
       <div class="nomeEquipe">
-        <h2>Equipe</h2>
+        <h2>{{equipe.nome}}</h2>
       </div>
       <div class="botoesPessoa">
         <button mat-icon-button matTooltip="Adicionar pessoa" class="botoesEquipe">
