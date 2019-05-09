@@ -8,12 +8,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EquipesComponent implements OnInit {
 
-  equipes: string[] = ['Fênix', 'Monster', 'Transformers', 'CuboD4', 'Anônima'];
+  isScrumMaster = true; // flag para testes de ScrumMaster
 
+  equipes: string[] = ['Fênix', 'Monster', 'Transformers', 'CuboD4', 'Anônima'];
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+
+    
   }
 
   criarEquipe(){

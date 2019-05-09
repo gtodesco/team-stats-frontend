@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
       res => {if(res != null){
         if(this.password === JSON.parse(JSON.stringify(res)).password){
           sessionStorage.setItem("email", this.email);
-          alert("logou");
           this.router.navigate(['/equipes']);
         }else{
           alert("Password incorreto");

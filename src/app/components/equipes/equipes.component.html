@@ -1,28 +1,43 @@
 <div class="container">
-  <div class="cabecalho">
+  <div class="conteudo">
     <div class="boasVindas">
       <h1>Olá, fulano!</h1>
     </div>
     <div class="acoes">
-      <button mat-flat-button color="primary" (click)="criarEquipe()">Criar equipe</button>
+      <button mat-flat-button color="primary" (click)="criarEquipe()" *ngIf="isScrumMaster">Criar equipe</button>
       <button mat-flat-button (click)="editarPerfil()">Editar perfil</button>
       <button mat-flat-button color="warn" (click)="sair()">Sair</button>
     </div>
-    <div>
-      <mat-list class="equipes">
-        <div class="equipe" *ngFor="let equipe of equipes">
+    <div *ngIf="!isScrumMaster">
+      <div class="nomeEquipe">
+        <h2>Equipe</h2>
+      </div>
+      <div class="botoesPessoa">
+        <button mat-icon-button matTooltip="Adicionar pessoa" class="botoesEquipe">
+          <mat-icon>person_add</mat-icon>
+        </button>
+      </div>
+      <!-- <div class="equipe" *ngFor="let sprint of sprints">
+        <div>
+
+        </div>
+      </div> -->
+    </div>
+    <div *ngIf="isScrumMaster"> 
+      <mat-list class="listaEquipes">
+        <div class="equipes" *ngFor="let equipe of equipes">
             <mat-list-item>
               {{equipe}}
-              <button mat-icon-button class="botoesEquipe">
+              <button mat-icon-button matTooltip="Ver sprints" class="botoesScrumMaster">
                 <mat-icon>table_chart</mat-icon>
               </button>
-              <button mat-icon-button class="botoesEquipe">
+              <button mat-icon-button matTooltip="Adicionar pessoa" class="botoesScrumMaster">
                 <mat-icon>person_add</mat-icon>
               </button>
-              <button mat-icon-button class="botoesEquipe">
+              <button mat-icon-button matTooltip="Editar equipe" class="botoesScrumMaster">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button class="botoesEquipe">
+              <button mat-icon-button matTooltip="Excluir equipe" class="botoesScrumMaster">
                 <mat-icon>delete</mat-icon>
               </button>
             </mat-list-item>
