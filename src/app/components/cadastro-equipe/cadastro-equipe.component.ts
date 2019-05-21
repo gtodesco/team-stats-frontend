@@ -28,7 +28,6 @@ export class CadastroEquipeComponent {
   }
 
   salvar(){
-    console.log("SALVOU");
     this.equipeService.postEquipe(this.form.value.equipe).subscribe();
     this.router.navigate(['/equipes']);
   }

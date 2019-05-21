@@ -32,7 +32,7 @@ export class CadastroPessoaComponent implements OnInit {
               private pessoaService: PessoaService) { }
 
   ngOnInit() {
-    if(sessionStorage.length != 0){ // Verifica se existe pessoa logada
+    if(sessionStorage.getItem("email") != null){ // Verifica se existe pessoa logada
       this.pessoaService.getPessoaByEmail(sessionStorage.getItem("email"))
       .subscribe(
         res => {
@@ -52,12 +52,10 @@ export class CadastroPessoaComponent implements OnInit {
   }
 
   salvar(){
-    if(sessionStorage.length == 0){
-      console.log("SALVOU");
+    if(sessionStorage.getItem("email") == null){
       this.pessoaService.postPessoa(this.form.value.pessoa).subscribe();
       this.router.navigate(['/login']);
     }else{
-      console.log('ALTEROU');
       this.pessoaService.getPessoaByEmail(sessionStorage.getItem("email"))
       .subscribe(
         res => {

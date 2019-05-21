@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private pessoaService: PessoaService) { }
 
   ngOnInit(){
-    if(sessionStorage.length != 0){
+    if(sessionStorage.getItem("email") != null){
       this.router.navigate(['/equipes']);
     }
   }  

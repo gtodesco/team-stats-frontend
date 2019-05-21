@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CadastroPessoaComponent } from './components/cadastro-pessoa/cadastro-pessoa.component';
 import { EquipesComponent } from './components/equipes/equipes.component';
 import { CadastroEquipeComponent } from './components/cadastro-equipe/cadastro-equipe.component';
+import { AddPessoaComponent } from './components/add-pessoa/add-pessoa.component';
 
 @NgModule({
   declarations: [ // Components
@@ -18,7 +19,8 @@ import { CadastroEquipeComponent } from './components/cadastro-equipe/cadastro-e
     LoginComponent,
     CadastroPessoaComponent,
     EquipesComponent,
-    CadastroEquipeComponent
+    CadastroEquipeComponent,
+    AddPessoaComponent
   ],
   imports: [
     BrowserModule,

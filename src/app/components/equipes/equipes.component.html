@@ -13,7 +13,7 @@
         <h2>{{equipe.nome}}</h2>
       </div>
       <div class="botoesPessoa">
-        <button mat-icon-button matTooltip="Adicionar pessoa" class="botoesEquipe">
+        <button mat-icon-button matTooltip="Adicionar pessoa" class="botoesEquipe" (click)="addPessoa(equipe.id)">
           <mat-icon>person_add</mat-icon>
         </button>
       </div>

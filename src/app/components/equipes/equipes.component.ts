@@ -31,8 +31,6 @@ export class EquipesComponent implements OnInit {
         if(!this.isScrumMaster){ // Se não for Scrum Master
           this.equipe = pessoa.equipe;
         }
-
-        console.log(res);
       },
       error => console.log(error)
     );
@@ -54,6 +52,11 @@ export class EquipesComponent implements OnInit {
   sair(){
     sessionStorage.removeItem("email");
     this.router.navigate(["/login"]);
+  }
+
+  addPessoa(id: any){
+    sessionStorage.setItem("equipe", id);
+    this.router.navigate(["/add-pessoa"]);
   }
 
 }

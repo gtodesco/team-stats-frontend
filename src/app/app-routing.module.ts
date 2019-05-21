@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CadastroPessoaComponent } from './components/cadastro-pessoa/cadastro-pessoa.component';
 import { EquipesComponent } from './components/equipes/equipes.component';
 import { CadastroEquipeComponent } from './components/cadastro-equipe/cadastro-equipe.component';
+import { AddPessoaComponent } from './components/add-pessoa/add-pessoa.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'cadastro-pessoa', component: CadastroPessoaComponent },
   { path: 'equipes', component: EquipesComponent },
   { path: 'cadastro-equipe', component: CadastroEquipeComponent },
+  { path: 'add-pessoa', component: AddPessoaComponent },
   { path: '**', component: LoginComponent }
 ];
 

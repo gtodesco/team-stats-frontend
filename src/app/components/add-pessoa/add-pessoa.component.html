@@ -1,0 +1,33 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Adicionar pessoa</mat-card-title>
+    <form [formGroup]="form">
+      <div formGroupName="pessoa">
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="email"
+            placeholder="E-mail"
+            [(ngModel)]="email">
+          <mat-error *ngIf="form.get('pessoa.email').hasError('required')">{{getRequiredMessage('e-mail')}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="cadastro_buttons">
+        <button
+          mat-flat-button
+          color="basic"
+          (click)="voltar()">
+          Voltar
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          [disabled]="form.invalid"
+          (click)="adicionar()">
+          Adicionar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
