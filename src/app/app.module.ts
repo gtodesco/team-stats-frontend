@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
 
+
 import { LoginComponent } from './components/login/login.component';
 import { CadastroPessoaComponent } from './components/cadastro-pessoa/cadastro-pessoa.component';
 import { EquipesComponent } from './components/equipes/equipes.component';
@@ -32,7 +33,6 @@ import { AddPessoaComponent } from './components/add-pessoa/add-pessoa.component
 
     AppRoutingModule
   ],
-  providers: [], // Services
   bootstrap: [AppComponent]
 })
 export class AppModule { }

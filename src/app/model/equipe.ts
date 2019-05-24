@@ -1,10 +1,10 @@
 export class Equipe {
     public id:      number;
     public nome:    string;
-    public pessoas: Array<Object>;
-    public sprints: Array<Object>;
+    public pessoas: Array<any>;
+    public sprints: Array<any>;
   
-    constructor(id: number, nome: string, pessoas: Array<Object>, sprints: Array<Object>){
+    constructor(id: number, nome: string, pessoas: Array<any>, sprints: Array<any>){
  
         this.id       = id;
         this.nome     = nome;

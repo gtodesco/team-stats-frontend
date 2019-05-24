@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PessoaService } from '../../services/pessoa.service';
+import { EquipeService } from '../../services/equipe.service';
 
 @Component({
   selector: 'app-equipes',
@@ -13,17 +14,18 @@ export class EquipesComponent implements OnInit {
   nome;
   equipe;
 
-  equipes: string[] = ['Fênix', 'Monster', 'Transformers', 'CuboD4', 'Anônima'];
+  equipes: {};
 
   constructor(private route: ActivatedRoute, 
               private router: Router, 
-              private pessoaService: PessoaService) { }
+              private pessoaService: PessoaService,
+              private equipeService: EquipeService) { }
 
   ngOnInit() {
 
     this.pessoaService.getPessoaByEmail(sessionStorage.getItem("email"))
     .subscribe(
-      res=>{
+      res => {
         let pessoa = this.getOjbJSON(res);
         this.nome = pessoa.nome.split(" ", 1); // Primeiro nome apenas
         this.isScrumMaster = pessoa.scrum_Master;
@@ -31,6 +33,17 @@ export class EquipesComponent implements OnInit {
         if(!this.isScrumMaster){ // Se não for Scrum Master
           this.equipe = pessoa.equipe;
         }
+        else{
+
+          this.equipeService.getEquipes().subscribe(
+            res => {
+              this.equipes = res;
+            },
+            error => console.log(error)
+          );
+
+        }
+
       },
       error => console.log(error)
     );
@@ -57,6 +70,11 @@ export class EquipesComponent implements OnInit {
   addPessoa(id: any){
     sessionStorage.setItem("equipe", id);
     this.router.navigate(["/add-pessoa"]);
+  }
+
+  editEquipe(id: any){
+    sessionStorage.setItem("equipe", id);
+    this.router.navigate(["/cadastro-equipe"]);
   }
 
 }

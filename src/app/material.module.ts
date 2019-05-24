@@ -25,6 +25,7 @@ import {
   MatTooltipModule
 } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatToolbarModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
@@ -75,7 +77,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatSidenavModule,
     MatSortModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule {}

@@ -13,11 +13,22 @@
           <mat-error *ngIf="form.get('equipe.nome').hasError('required')">{{getRequiredMessage('nome')}}</mat-error>
         </mat-form-field>
       </div>
+
+      <mat-form-field class="chip-list">
+        <mat-chip-list [disabled]="inclusaoEquipe">
+          <mat-chip *ngFor="let pessoa of pessoas"
+                   [removable]="removable" (removed)="removePessoa(pessoa)">
+            {{pessoa.nome}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+      </mat-form-field>
+
       <div class="cadastro_buttons">
         <button
           mat-flat-button
           color="basic"
-          routerLink="/equipes">
+          (click)="voltar()">
           Voltar
         </button>
         <button

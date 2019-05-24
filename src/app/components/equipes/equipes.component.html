@@ -1,13 +1,16 @@
 <div class="container">
   <div class="conteudo">
+    
     <div class="boasVindas">
       <h1>Olá, {{nome}}!</h1>
     </div>
+    
     <div class="acoes">
       <button mat-flat-button color="primary" (click)="criarEquipe()" *ngIf="isScrumMaster">Criar equipe</button>
       <button mat-flat-button (click)="editarPerfil()">Editar perfil</button>
       <button mat-flat-button color="warn" (click)="sair()">Sair</button>
     </div>
+    
     <div *ngIf="!isScrumMaster">
       <div class="nomeEquipe">
         <h2>{{equipe.nome}}</h2>
@@ -23,18 +26,19 @@
         </div>
       </div> -->
     </div>
+
     <div *ngIf="isScrumMaster"> 
       <mat-list class="listaEquipes">
         <div class="equipes" *ngFor="let equipe of equipes">
             <mat-list-item>
-              {{equipe}}
+              {{equipe.nome}}
               <button mat-icon-button matTooltip="Ver sprints" class="botoesScrumMaster">
                 <mat-icon>table_chart</mat-icon>
               </button>
-              <button mat-icon-button matTooltip="Adicionar pessoa" class="botoesScrumMaster">
+              <button mat-icon-button matTooltip="Adicionar pessoa" class="botoesScrumMaster" (click)="addPessoa(equipe.id)">
                 <mat-icon>person_add</mat-icon>
               </button>
-              <button mat-icon-button matTooltip="Editar equipe" class="botoesScrumMaster">
+              <button mat-icon-button matTooltip="Editar equipe" class="botoesScrumMaster" (click)="editEquipe(equipe.id)">
                 <mat-icon>edit</mat-icon>
               </button>
               <button mat-icon-button matTooltip="Excluir equipe" class="botoesScrumMaster">
@@ -44,5 +48,6 @@
         </div>
       </mat-list>
     </div>
+
   </div>
 </div>
