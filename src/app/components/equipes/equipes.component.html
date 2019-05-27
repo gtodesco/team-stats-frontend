@@ -41,7 +41,7 @@
               <button mat-icon-button matTooltip="Editar equipe" class="botoesScrumMaster" (click)="editEquipe(equipe.id)">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button matTooltip="Excluir equipe" class="botoesScrumMaster">
+              <button mat-icon-button matTooltip="Excluir equipe" class="botoesScrumMaster" (click)="removerEquipe(equipe.id, equipe.pessoas)">
                 <mat-icon>delete</mat-icon>
               </button>
             </mat-list-item>

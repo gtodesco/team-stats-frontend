@@ -77,4 +77,15 @@ export class EquipesComponent implements OnInit {
     this.router.navigate(["/cadastro-equipe"]);
   }
 
+  removerEquipe(id: any, pessoas: any){
+
+    for(var i=0; i <= pessoas.length - 1; i++){
+      pessoas[i].equipe = null;
+      this.pessoaService.putPessoa(pessoas[i]).subscribe();
+    }
+
+   this.equipeService.delete(id).subscribe();
+   location.reload();
+  }
+
 }

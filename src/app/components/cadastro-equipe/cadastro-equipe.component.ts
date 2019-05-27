@@ -57,7 +57,12 @@ export class CadastroEquipeComponent implements OnInit{
 
   salvar(){
     if(sessionStorage.getItem("equipe") == null){
-      this.equipeService.postEquipe(this.form.value.equipe).subscribe();
+      this.equipeService.postEquipe(this.form.value.equipe).subscribe(
+        res =>{
+          sessionStorage.removeItem("equipe");
+          this.router.navigate(['/equipes']);
+        }
+      );
     }
     else{
 
@@ -68,17 +73,23 @@ export class CadastroEquipeComponent implements OnInit{
           let equipe = this.getOjbJSON(res);
 
           equipe.nome = this.nome;
+          equipe.pessoas = [];
 
-          this.equipeService.putEquipe(equipe).subscribe();
+          this.equipeService.putEquipe(equipe).subscribe(
+            res => {
+              
+              sessionStorage.removeItem("equipe");
+              this.router.navigate(['/equipes']);
+
+            }
+          );
 
         },
         error => console.log(error)
       );
-
       
     }
-    sessionStorage.removeItem("equipe");
-    this.router.navigate(['/equipes']);
+
   }
 
   voltar(){
