@@ -1,7 +1,7 @@
 <div class="container">
   <div class="conteudo">
     
-    <div class="boasVindas">
+    <div class="boas-vindas">
       <h1>Olá, {{nome}}!</h1>
     </div>
     
@@ -12,14 +12,18 @@
     </div>
     
     <div *ngIf="!isScrumMaster">
-      <div class="nomeEquipe">
+      <div class="nome-equipe">
         <h2>{{equipe.nome}}</h2>
       </div>
-      <div class="botoesPessoa">
-        <button mat-icon-button matTooltip="Adicionar pessoa" class="botoesEquipe" (click)="addPessoa(equipe.id)">
+      <div class="botoes-pessoa">
+        <button mat-icon-button matTooltip="Adicionar pessoa" class="botoes-equipe" (click)="addPessoa(equipe.id)">
           <mat-icon>person_add</mat-icon>
         </button>
+        <button mat-icon-button matTooltip="Ver sprints" class="botoes-equipe">
+          <mat-icon>table_chart</mat-icon>
+        </button>
       </div>
+
       <!-- <div class="equipe" *ngFor="let sprint of sprints">
         <div>
 
@@ -28,20 +32,20 @@
     </div>
 
     <div *ngIf="isScrumMaster"> 
-      <mat-list class="listaEquipes">
+      <mat-list class="lista-equipes">
         <div class="equipes" *ngFor="let equipe of equipes">
             <mat-list-item>
               {{equipe.nome}}
-              <button mat-icon-button matTooltip="Ver sprints" class="botoesScrumMaster">
+              <button mat-icon-button matTooltip="Ver sprints" class="botoes-scrum-master">
                 <mat-icon>table_chart</mat-icon>
               </button>
-              <button mat-icon-button matTooltip="Adicionar pessoa" class="botoesScrumMaster" (click)="addPessoa(equipe.id)">
+              <button mat-icon-button matTooltip="Adicionar pessoa" class="botoes-scrum-master" (click)="addPessoa(equipe.id)">
                 <mat-icon>person_add</mat-icon>
               </button>
-              <button mat-icon-button matTooltip="Editar equipe" class="botoesScrumMaster" (click)="editEquipe(equipe.id)">
+              <button mat-icon-button matTooltip="Editar equipe" class="botoes-scrum-master" (click)="editEquipe(equipe.id)">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button matTooltip="Excluir equipe" class="botoesScrumMaster" (click)="removerEquipe(equipe.id, equipe.pessoas)">
+              <button mat-icon-button matTooltip="Excluir equipe" class="botoes-scrum-master" (click)="removerEquipe(equipe.id, equipe.pessoas)">
                 <mat-icon>delete</mat-icon>
               </button>
             </mat-list-item>
