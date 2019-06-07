@@ -13,6 +13,7 @@ import { CadastroPessoaComponent } from './components/cadastro-pessoa/cadastro-p
 import { EquipesComponent } from './components/equipes/equipes.component';
 import { CadastroEquipeComponent } from './components/cadastro-equipe/cadastro-equipe.component';
 import { AddPessoaComponent } from './components/add-pessoa/add-pessoa.component';
+import { SprintsComponent } from './components/sprints/sprints.component';
 
 @NgModule({
   declarations: [ // Components
@@ -21,7 +22,8 @@ import { AddPessoaComponent } from './components/add-pessoa/add-pessoa.component
     CadastroPessoaComponent,
     EquipesComponent,
     CadastroEquipeComponent,
-    AddPessoaComponent
+    AddPessoaComponent,
+    SprintsComponent
   ],
   imports: [
     BrowserModule,

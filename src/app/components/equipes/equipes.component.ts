@@ -13,6 +13,7 @@ export class EquipesComponent implements OnInit {
   isScrumMaster = true; // flag para testes de ScrumMaster
   nome;
   equipe;
+  pessoas: {};
 
   equipes: {};
 
@@ -32,6 +33,14 @@ export class EquipesComponent implements OnInit {
 
         if(!this.isScrumMaster){ // Se não for Scrum Master
           this.equipe = pessoa.equipe;
+
+          this.equipeService.getEquipeById(this.equipe.id).subscribe(
+            res => {
+              this.pessoas = this.getOjbJSON(res).pessoas;
+            },
+            error => console.log(error)
+          );
+
         }
         else{
 
@@ -65,6 +74,11 @@ export class EquipesComponent implements OnInit {
   sair(){
     sessionStorage.removeItem("email");
     this.router.navigate(["/login"]);
+  }
+
+  verSprints(id: any){
+    sessionStorage.setItem("equipe", id);
+    this.router.navigate(["/sprints"]);
   }
 
   addPessoa(id: any){

@@ -16,12 +16,21 @@
         <h2>{{equipe.nome}}</h2>
       </div>
       <div class="botoes-pessoa">
+        <button mat-icon-button matTooltip="Ver sprints" class="botoes-equipe" (click)="verSprints(equipe.id)">
+          <mat-icon>table_chart</mat-icon>
+        </button>
         <button mat-icon-button matTooltip="Adicionar pessoa" class="botoes-equipe" (click)="addPessoa(equipe.id)">
           <mat-icon>person_add</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Ver sprints" class="botoes-equipe">
-          <mat-icon>table_chart</mat-icon>
-        </button>
+      </div>
+      <div class="dados-pessoas">
+        <div class="pessoa" *ngFor="let pessoa of pessoas">
+            <mat-card>
+              <mat-card-title>{{pessoa.nome}}</mat-card-title>
+              <a>Atividades Concluídas: {{pessoa.ativ_Concluidas}}</a><br />
+              <a>Pontuação Entregue: {{pessoa.pont_Entregue}}</a>
+            </mat-card>
+        </div>
       </div>
 
       <!-- <div class="equipe" *ngFor="let sprint of sprints">
@@ -36,7 +45,7 @@
         <div class="equipes" *ngFor="let equipe of equipes">
             <mat-list-item>
               {{equipe.nome}}
-              <button mat-icon-button matTooltip="Ver sprints" class="botoes-scrum-master">
+              <button mat-icon-button matTooltip="Ver sprints" class="botoes-scrum-master" (click)="verSprints(equipe.id)">
                 <mat-icon>table_chart</mat-icon>
               </button>
               <button mat-icon-button matTooltip="Adicionar pessoa" class="botoes-scrum-master" (click)="addPessoa(equipe.id)">
