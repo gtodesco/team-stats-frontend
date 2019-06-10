@@ -13,7 +13,7 @@ export class EquipesComponent implements OnInit {
   isScrumMaster = true; // flag para testes de ScrumMaster
   nome;
   equipe;
-  pessoas: {};
+  pessoas: [];
 
   equipes: {};
 
