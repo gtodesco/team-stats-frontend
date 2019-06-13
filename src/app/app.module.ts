@@ -14,6 +14,7 @@ import { EquipesComponent } from './components/equipes/equipes.component';
 import { CadastroEquipeComponent } from './components/cadastro-equipe/cadastro-equipe.component';
 import { AddPessoaComponent } from './components/add-pessoa/add-pessoa.component';
 import { SprintsComponent } from './components/sprints/sprints.component';
+import { DialogOverviewExampleDialog } from './components/equipes/equipes.component';
 
 @NgModule({
   declarations: [ // Components
@@ -23,7 +24,8 @@ import { SprintsComponent } from './components/sprints/sprints.component';
     EquipesComponent,
     CadastroEquipeComponent,
     AddPessoaComponent,
-    SprintsComponent
+    SprintsComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { SprintsComponent } from './components/sprints/sprints.component';
 
     AppRoutingModule
   ],
+  entryComponents: [DialogOverviewExampleDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

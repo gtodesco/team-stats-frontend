@@ -41,7 +41,7 @@ export class SprintsComponent implements OnInit {
           this.sprints[i].qtdDias = parseFloat(this.sprints[i].qtdDias);
         }
 
-        debugger;
+        //debugger;
 
       },
       error => console.log(error)

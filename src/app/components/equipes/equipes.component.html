@@ -22,6 +22,9 @@
         <button mat-icon-button matTooltip="Adicionar pessoa" class="botoes-equipe" (click)="addPessoa(equipe.id)">
           <mat-icon>person_add</mat-icon>
         </button>
+        <button mat-icon-button matTooltip="Concluir tarefa" class="botoes-equipe" (click)="concluirTarefa()">
+          <mat-icon>check_circle_outline</mat-icon>
+        </button>
       </div>
       <div class="dados-pessoas">
         <div class="pessoa" *ngFor="let pessoa of pessoas">

@@ -26,6 +26,7 @@ import {
 } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatPaginatorModule,
     MatSortModule,
     MatTooltipModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -78,7 +80,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatSortModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule {}
