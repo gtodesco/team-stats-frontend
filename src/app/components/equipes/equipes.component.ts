@@ -127,7 +127,9 @@ export class EquipesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       this.pessoa.pont_Entregue = Number(result) + Number(this.pessoa.pont_Entregue);
-      this.pessoa.ativ_Concluidas = Number(this.pessoa.ativ_Concluidas) + 1;
+      if(result > 0){
+        this.pessoa.ativ_Concluidas = Number(this.pessoa.ativ_Concluidas) + 1;
+      }
 
       this.pessoaService.putPessoa(this.pessoa).subscribe(() =>{
         location.reload();
