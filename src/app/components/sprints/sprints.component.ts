@@ -58,7 +58,7 @@ export class SprintsComponent implements OnInit {
 
   criarSprint(){
 
-    if(this.sprintAtual == null){
+    if(this.sprintAtual != null){
       alert('É necessário encerrar a sprint atual antes.');
       return;
     }
@@ -73,6 +73,9 @@ export class SprintsComponent implements OnInit {
     }
 
     this.sprintAtual.finalizada = true;
+    this.sprintAtual.equipe = {'id': sessionStorage.getItem('equipe')};
+
+    debugger;
 
     this.sprintService.putSprint(this.sprintAtual).subscribe(
       res => {
