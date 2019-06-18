@@ -57,25 +57,32 @@ export class SprintsComponent implements OnInit {
   }
 
   criarSprint(){
-    console.log("criando sprint");
+
+    if(this.sprintAtual == null){
+      alert('É necessário encerrar a sprint atual antes.');
+      return;
+    }
+
+    this.router.navigate(['/cadastro-sprint']);
   }
 
   encerrarSprint(){
-    console.log("encerrar sprint");
-
-    if(this.sprintAtual != null){
-      this.sprintAtual.finalizada = true;
-
-      this.sprintService.putSprint(this.sprintAtual).subscribe(
-        res => {
-            
-          location.reload();
-          
-        },
-        error => console.log(error)
-      
-      );
+    if(this.sprintAtual == null){
+      alert('É necessário criar uma sprint nova.');
+      return;
     }
+
+    this.sprintAtual.finalizada = true;
+
+    this.sprintService.putSprint(this.sprintAtual).subscribe(
+      res => {
+          
+        location.reload();
+        
+      },
+      error => console.log(error)
+    
+    );
   }
 
   voltar(){

@@ -1,0 +1,51 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Cadastro de Sprint</mat-card-title>
+    <form [formGroup]="form">
+      <div formGroupName="sprint">
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="numero"
+            placeholder="Numero"
+            [(ngModel)]="numero">
+          <mat-error *ngIf="form.get('sprint.numero').hasError('required')">{{getRequiredMessage('Número')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="pontPlanejada"
+            placeholder="Pont. Planejada"
+            [(ngModel)]="pontPlanejada">
+          <mat-error *ngIf="form.get('sprint.pontPlanejada').hasError('required')">{{getRequiredMessage('Pont. Planejada')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            required
+            formControlName="qtdDias"
+            placeholder="Qtd. Dias"
+            [(ngModel)]="qtdDias">
+          <mat-error *ngIf="form.get('sprint.qtdDias').hasError('required')">{{getRequiredMessage('Qtd. Dias')}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="cadastro_buttons">
+        <button
+          mat-flat-button
+          color="basic"
+          routerLink="/equipes">
+          Voltar
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          [disabled]="form.invalid"
+          (click)="cadastrar()">
+          Cadastrar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -15,6 +15,7 @@ import { CadastroEquipeComponent } from './components/cadastro-equipe/cadastro-e
 import { AddPessoaComponent } from './components/add-pessoa/add-pessoa.component';
 import { SprintsComponent } from './components/sprints/sprints.component';
 import { DialogOverviewExampleDialog } from './components/equipes/equipes.component';
+import { CadastroSprintComponent } from './components/cadastro-sprint/cadastro-sprint.component';
 
 @NgModule({
   declarations: [ // Components
@@ -25,7 +26,8 @@ import { DialogOverviewExampleDialog } from './components/equipes/equipes.compon
     CadastroEquipeComponent,
     AddPessoaComponent,
     SprintsComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    CadastroSprintComponent
   ],
   imports: [
     BrowserModule,
