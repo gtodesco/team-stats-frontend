@@ -5,9 +5,9 @@
   </div>
 
   <div class="acoes">
-    <button mat-flat-button color="primary" *ngIf="isScrumMaster">Criar Sprint</button>
-    <button mat-flat-button color="warn" *ngIf="isScrumMaster">Encerrar Sprint</button>
-    <button mat-flat-button routerLink="/equipes">Voltar</button>
+    <button mat-flat-button color="primary" *ngIf="isScrumMaster" (click)="criarSprint()">Criar Sprint</button>
+    <button mat-flat-button color="warn" *ngIf="isScrumMaster" (click)="encerrarSprint()">Encerrar Sprint</button>
+    <button mat-flat-button (click)="voltar()">Voltar</button>
   </div>
 
   <div class="dados-sprints">
