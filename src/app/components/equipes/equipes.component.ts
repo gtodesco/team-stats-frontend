@@ -119,6 +119,22 @@ export class EquipesComponent implements OnInit {
   }
 
   concluirTarefa(): void {
+    
+    let temSprintAberta = false;
+    let sprints = this.equipe.sprints;
+
+    for(var i=0; i <= sprints.length -1; i++){
+      if(sprints[i].finalizada == false){
+        temSprintAberta = true;
+        break;
+      }
+    }
+
+    if(!temSprintAberta){
+      alert('É necessário possuir uma sprint aberta.');
+      return;
+    }
+
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
       data: {pontuacao: this.pontuacao}
@@ -150,7 +166,7 @@ export class EquipesComponent implements OnInit {
     </div>
     <div mat-dialog-actions>
       <button mat-button (click)="onNoClick()">Cancelar</button>
-      <button mat-button [mat-dialog-close]="data.pontuacao" cdkFocusInitial>Ok</button>
+      <button mat-button [mat-dialog-close]="data.pontuacao" cdkFocusInitial>OK</button>
     </div>
   `,
 })
