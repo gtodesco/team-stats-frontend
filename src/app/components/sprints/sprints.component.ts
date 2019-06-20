@@ -35,9 +35,9 @@ export class SprintsComponent implements OnInit {
 
     this.equipeService.getEquipeById(parseInt(sessionStorage.getItem("equipe"))).subscribe(
       res => {
-        
+
         this.equipe = this.getOjbJSON(res);
-        this.sprints = this.getOjbJSON(res).sprints;
+        this.sprints = this.getOjbJSON(res).sprints.reverse();
 
         for(var i = 0; i <= this.sprints.length -1; i++){
           this.sprints[i].pontConcluidas = Number(this.sprints[i].pontConcluidas);
@@ -46,14 +46,9 @@ export class SprintsComponent implements OnInit {
             this.sprintAtual = this.sprints[i];
           }
         }
-
-        //debugger;
-
       },
       error => console.log(error)
     );
-
-
   }
 
   criarSprint(){
