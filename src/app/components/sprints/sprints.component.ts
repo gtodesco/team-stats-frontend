@@ -12,7 +12,7 @@ import { SprintService } from '../../services/sprint.service';
 export class SprintsComponent implements OnInit {
 
   isScrumMaster = true; // flag para controle se é Scrum Master
-  equipe = {};
+  equipe = {nome: '', pessoas:[]};
   sprints = [];
   sprintAtual;
 
@@ -72,15 +72,32 @@ export class SprintsComponent implements OnInit {
       return;
     }
 
-    this.sprintAtual.finalizada = true;
-    this.sprintAtual.equipe = {'id': sessionStorage.getItem('equipe')};
+    let pessoas = this.equipe.pessoas;
 
     debugger;
+
+    let pontConcluidas = 0;
+
+    for(var i = 0; i <= pessoas.length -1; i++){
+      pontConcluidas = pontConcluidas + Number(pessoas[i].pont_Entregue);
+    }
+
+    this.sprintAtual.pontConcluidas = pontConcluidas;
+    this.sprintAtual.finalizada = true;
+    this.sprintAtual.equipe = {'id': sessionStorage.getItem('equipe')};
 
     this.sprintService.putSprint(this.sprintAtual).subscribe(
       res => {
           
-        location.reload();
+        for(var i = 0; i <= pessoas.length -1; i++){
+          pessoas[i].ativ_Concluidas = 0;
+          pessoas[i].pont_Entregue = 0;
+          pessoas[i].equipe = {'id': sessionStorage.getItem('equipe')};
+          this.pessoaService.putPessoa(pessoas[i]).subscribe();
+          if(i == pessoas.length -1){
+            location.reload();
+          }
+        }
         
       },
       error => console.log(error)

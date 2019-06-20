@@ -14,9 +14,12 @@
     <div class="sprint" *ngFor="let sprint of sprints">
         <mat-card>
           <mat-card-title>Sprint {{sprint.numero}}</mat-card-title>
+          <a *ngIf="!sprint.finalizada">ABERTA</a><br />
+          <a *ngIf="sprint.finalizada">FINALIZADA</a><br />
           <a>Pontuação Planejada: {{sprint.pontPlanejada}}</a><br />
-          <a>Pontuação Concluída: {{sprint.pontConcluidas}}</a><br />
-          <a>Velocidade do time: {{sprint.pontConcluidas / sprint.qtdDias}}</a>
+          <a *ngIf="sprint.finalizada">Pontuação Concluída: {{sprint.pontConcluidas}}</a><br />
+          <a *ngIf="sprint.finalizada">Dias: {{sprint.qtdDias}}</a><br />
+          <a *ngIf="sprint.finalizada">Velocidade do time: {{sprint.pontConcluidas / sprint.qtdDias}}/dia</a>
         </mat-card>
     </div>
   </div>
