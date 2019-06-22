@@ -6,11 +6,13 @@
     </div>
     
     <div class="acoes">
-      <button mat-flat-button color="primary" (click)="criarEquipe()" *ngIf="isScrumMaster">Criar equipe</button>
-      <button mat-flat-button (click)="editarPerfil()">Editar perfil</button>
+      <button mat-flat-button color="primary" (click)="criarEquipe()" *ngIf="isScrumMaster">Criar equipe</button>&nbsp;
+      <button mat-flat-button (click)="editarPerfil()">Editar perfil</button>&nbsp;
       <button mat-flat-button color="warn" (click)="sair()">Sair</button>
     </div>
     
+    <br/>
+
     <div *ngIf="!isScrumMaster">
       <div class="nome-equipe">
         <h2>{{equipe.nome}}</h2>
@@ -44,25 +46,32 @@
     </div>
 
     <div *ngIf="isScrumMaster"> 
-      <mat-list class="lista-equipes">
-        <div class="equipes" *ngFor="let equipe of equipes">
-            <mat-list-item>
-              {{equipe.nome}}
-              <button mat-icon-button matTooltip="Ver sprints" class="botoes-scrum-master" (click)="verSprints(equipe.id)">
-                <mat-icon>table_chart</mat-icon>
-              </button>
-              <button mat-icon-button matTooltip="Adicionar pessoa" class="botoes-scrum-master" (click)="addPessoa(equipe.id)">
-                <mat-icon>person_add</mat-icon>
-              </button>
-              <button mat-icon-button matTooltip="Editar equipe" class="botoes-scrum-master" (click)="editEquipe(equipe.id)">
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button mat-icon-button matTooltip="Excluir equipe" class="botoes-scrum-master" (click)="removerEquipe(equipe.id, equipe.pessoas)">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </mat-list-item>
-        </div>
-      </mat-list>
+      <table mat-table [dataSource]="equipes">
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <td mat-cell *matCellDef="let equipe"> {{equipe.nome}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <td mat-cell *matCellDef="let equipe">
+            <button mat-icon-button matTooltip="Ver sprints" class="botoes-scrum-master" (click)="verSprints(equipe.id)">
+              <mat-icon>table_chart</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Adicionar pessoa" class="botoes-scrum-master" (click)="addPessoa(equipe.id)">
+              <mat-icon>person_add</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Editar equipe" class="botoes-scrum-master" (click)="editEquipe(equipe.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Excluir equipe" class="botoes-scrum-master" (click)="removerEquipe(equipe.id, equipe.pessoas)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </div>
 
   </div>

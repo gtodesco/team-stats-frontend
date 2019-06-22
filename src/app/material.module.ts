@@ -19,7 +19,6 @@ import {
   MatRadioModule,
   MatSidenavModule,
   MatToolbarModule,
-  MatTableModule,
   MatPaginatorModule,
   MatSortModule,
   MatTooltipModule
@@ -27,6 +26,7 @@ import {
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   imports: [
