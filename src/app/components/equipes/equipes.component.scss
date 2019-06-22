@@ -11,8 +11,16 @@ table {
   width: 100%;
 }
 
-.boas-vindas {
+.boas-vindas, .nome-equipe {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+}
+
+.botoes-pessoa{
+  text-align: center;
+}
+
+.pessoa{
+  padding: 1%;
 }
