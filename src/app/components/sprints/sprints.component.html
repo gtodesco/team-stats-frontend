@@ -1,27 +1,38 @@
 <div class="container">
-
-  <div class="titulo-pagina">
-    <h1>Sprints {{equipe.nome}}</h1>
-  </div>
-
-  <div class="acoes">
-    <button mat-flat-button color="primary" *ngIf="isScrumMaster" (click)="criarSprint()">Criar Sprint</button>
-    <button mat-flat-button color="warn" *ngIf="isScrumMaster" (click)="encerrarSprint()">Encerrar Sprint</button>
-    <button mat-flat-button (click)="voltar()">Voltar</button>
-  </div>
-
-  <div class="dados-sprints">
-    <div class="sprint" *ngFor="let sprint of sprints">
-        <mat-card>
-          <mat-card-title>Sprint {{sprint.numero}}</mat-card-title>
-          <a *ngIf="!sprint.finalizada">ABERTA</a><br />
-          <a *ngIf="sprint.finalizada">FINALIZADA</a><br />
-          <a>Pontuação Planejada: {{sprint.pontPlanejada}}</a><br />
-          <a *ngIf="sprint.finalizada">Pontuação Concluída: {{sprint.pontConcluidas}}</a><br />
-          <a *ngIf="sprint.finalizada">Dias: {{sprint.qtdDias}}</a><br />
-          <a *ngIf="sprint.finalizada">Velocidade do time: {{sprint.pontConcluidas / sprint.qtdDias}}/dia</a>
-        </mat-card>
+  <div class="conteudo">
+    <div class="titulo-pagina">
+      <h1>Sprints {{equipe.nome}}</h1>
+    </div>
+  
+    <div class="acoes">
+      <button mat-flat-button color="primary" *ngIf="isScrumMaster" (click)="criarSprint()">Criar Sprint</button>&nbsp;
+      <button mat-flat-button color="warn" *ngIf="isScrumMaster" (click)="encerrarSprint()">Encerrar Sprint</button>&nbsp;
+      <button mat-flat-button (click)="voltar()">Voltar</button>
+    </div>
+  
+    <div class="dados-sprints">
+      <div class="sprint" *ngFor="let sprint of sprints">
+          <br/>
+          <mat-card>
+            <mat-card-title>Sprint {{sprint.numero}}</mat-card-title>
+            <div *ngIf="!sprint.finalizada">
+              <mat-chip-list>
+                <mat-chip class="aberta">ABERTA</mat-chip>
+              </mat-chip-list>
+              <!-- <p>ABERTA</p> -->
+            </div>
+            <div *ngIf="sprint.finalizada" class="fechada">
+                <mat-chip-list>
+                  <mat-chip color="warn" selected>FINALIZADA</mat-chip>
+                </mat-chip-list>
+              <!-- <p>FINALIZADA</p> -->
+            </div>
+            <p>Pontuação Planejada: {{sprint.pontPlanejada}}</p>
+            <p *ngIf="sprint.finalizada">Pontuação Concluída: {{sprint.pontConcluidas}}</p>
+            <p *ngIf="sprint.finalizada">Dias: {{sprint.qtdDias}}</p>
+            <p *ngIf="sprint.finalizada">Velocidade do time: {{sprint.pontConcluidas / sprint.qtdDias}}/dia</p>
+          </mat-card>
+      </div>
     </div>
   </div>
-
 </div>
