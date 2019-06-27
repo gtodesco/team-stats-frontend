@@ -69,8 +69,6 @@ export class SprintsComponent implements OnInit {
 
     let pessoas = this.equipe.pessoas;
 
-    debugger;
-
     let pontConcluidas = 0;
 
     for(var i = 0; i <= pessoas.length -1; i++){

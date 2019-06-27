@@ -30,7 +30,7 @@
             <p>Pontuação Planejada: {{sprint.pontPlanejada}}</p>
             <p *ngIf="sprint.finalizada">Pontuação Concluída: {{sprint.pontConcluidas}}</p>
             <p *ngIf="sprint.finalizada">Dias: {{sprint.qtdDias}}</p>
-            <p *ngIf="sprint.finalizada">Velocidade do time: {{sprint.pontConcluidas / sprint.qtdDias}}/dia</p>
+            <p *ngIf="sprint.finalizada">Velocidade do time: {{(sprint.pontConcluidas / sprint.qtdDias).toFixed(2)}}/dia</p>
           </mat-card>
       </div>
     </div>

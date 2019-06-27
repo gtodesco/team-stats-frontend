@@ -162,6 +162,9 @@ export class EquipesComponent implements OnInit {
       if(result > 0){
         this.pessoa.ativ_Concluidas = Number(this.pessoa.ativ_Concluidas) + 1;
       }
+      else if(result < 0){
+        this.pessoa.ativ_Concluidas = Number(this.pessoa.ativ_Concluidas) - 1;
+      }
 
       this.pessoaService.putPessoa(this.pessoa).subscribe(() =>{
         location.reload();
